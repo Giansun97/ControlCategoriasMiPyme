@@ -1,6 +1,7 @@
 from src.process_input_file import get_contribuyentes_to_process
 from src.process_sales_from_csv import get_sales_data_from_directory
 from src.mipyme_analysis import data_analisis_mipyme
+from src.export_results_to_excel import export_results_to_excel
 
 
 def main():
@@ -18,6 +19,8 @@ def main():
 
         # Append contribuyente results to results list
         results_list.append(data_analisis_mipyme_result_dict)
+
+    export_results_to_excel(results_list)
 
 
 if __name__ == '__main__':

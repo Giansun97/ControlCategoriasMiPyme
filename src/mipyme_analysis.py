@@ -64,21 +64,23 @@ def data_analisis_mipyme(contribuyente: Contribuyente, sales_data_list: list):
         sales_average,
         category,
         sales_limit,
-        difference
+        difference,
+        percentage_consumed
     )
 
     return result_dict
 
 
-def append_results_to_dict(contribuyente, average_total_sales, category, sales_limit, difference):
+def append_results_to_dict(contribuyente, average_total_sales, category, sales_limit, difference, percentage_consumed):
     # Create a dictionary with the results
     result_dict = {
         'Nombre': contribuyente.contribuyente,
         'Actividad': contribuyente.actividad,
-        'PromedioVentas': average_total_sales,
         'CategoriaAsignada': category,
+        'PromedioVentas': average_total_sales,
         'LimiteVentas': sales_limit,
-        'Diferencia': difference
+        'Diferencia': difference,
+        'PorcentajeConsumido': percentage_consumed
     }
 
     return result_dict
