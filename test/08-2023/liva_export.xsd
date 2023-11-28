@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://fisca.afip.gob.ar/xml"
+	targetNamespace="http://fisca.afip.gob.ar/xml"
+	elementFormDefault="qualified">
+
+	<xs:complexType name="compra">
+		<xs:sequence>
+			<xs:element name="fecha" type="xs:date" maxOccurs="1"
+				minOccurs="1">
+			</xs:element>
+			<xs:element name="tipo" type="xs:short" maxOccurs="1"
+				minOccurs="1">
+			</xs:element>
+			<xs:element name="punto_venta" type="xs:int" maxOccurs="1"
+				minOccurs="1">
+			</xs:element>
+			<xs:element name="numero_despacho" type="xs:string"
+				maxOccurs="1" minOccurs="0">
+			</xs:element>
+			<xs:element name="numero_desde" type="xs:int" maxOccurs="1"
+				minOccurs="1">
+			</xs:element>
+			<xs:element name="numero_hasta" type="xs:int" maxOccurs="1"
+				minOccurs="0">
+			</xs:element>
+			<xs:element name="tipo_doc_vendedor" type="xs:short"
+				maxOccurs="1" minOccurs="1">
+			</xs:element>
+			<xs:element name="nro_doc_vendedor" type="xs:string"
+				maxOccurs="1" minOccurs="1">
+			</xs:element>
+			<xs:element name="denominacion_vendedor" type="xs:string"
+				maxOccurs="1" minOccurs="1">
+			</xs:element>
+			<xs:element name="tipo_cambio" type="xs:decimal"
+				maxOccurs="1" minOccurs="1">
+			</xs:element>
+			<xs:element name="moneda" type="xs:string" maxOccurs="1"
+				minOccurs="1">
+			</xs:element>
+			<xs:element name="neto_gravado" type="xs:decimal"
+				maxOccurs="1" minOccurs="1">
+			</xs:element>
+			<xs:element name="no_gravado" type="xs:decimal"
+				maxOccurs="1" minOccurs="1">
+			</xs:element>
+			<xs:element name="exento" type="xs:decimal" maxOccurs="1"
+				minOccurs="1">
+			</xs:element>
+			<xs:element name="iva" type="xs:decimal" maxOccurs="1"
+				minOccurs="1">
+			</xs:element>
+			<xs:element name="cred_fiscal_computable" type="xs:decimal"
+				maxOccurs="1" minOccurs="1">
+			</xs:element>
+			<xs:element name="total" type="xs:decimal" maxOccurs="1"
+				minOccurs="1">
+			</xs:element>
+			<xs:element name="imp_no_int_neto_grav" type="xs:decimal"
+				maxOccurs="1" minOccurs="1">
+			</xs:element>
+			<xs:element name="imp_exentos" type="xs:decimal"
+				maxOccurs="1" minOccurs="1">
+			</xs:element>
+			<xs:element name="percep_o_pagos_a_cta_iva"
+				type="xs:decimal" maxOccurs="1" minOccurs="1">
+			</xs:element>
+			<xs:element name="percep_o_pagos_a_cta_otro_imp_nac"
+				type="xs:decimal" maxOccurs="1" minOccurs="1">
+			</xs:element>
+			<xs:element name="imp_internos" type="xs:decimal"
+				maxOccurs="1" minOccurs="1">
+			</xs:element>
+			<xs:element name="percep_ingresos_brutos" type="xs:decimal"
+				maxOccurs="1" minOccurs="1">
+			</xs:element>
+			<xs:element name="otros_tributos" type="xs:decimal" maxOccurs="1" minOccurs="1"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="compras">
+		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="compra" type="tns:compra"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="iva_compras">
+		<xs:sequence>
+			<xs:element name="compras" type="tns:compras" maxOccurs="1"
+				minOccurs="0">
+			</xs:element>
+			<xs:element name="informacion_consolidada" type="tns:info_cons_compras" maxOccurs="1" minOccurs="1"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="venta">
+		<xs:sequence>
+			<xs:element name="fecha" type="xs:date" maxOccurs="1"
+				minOccurs="1">
+			</xs:element>
+			<xs:element name="tipo" type="xs:short" maxOccurs="1"
+				minOccurs="1">
+			</xs:element>
+			<xs:element name="punto_venta" type="xs:int" maxOccurs="1"
+				minOccurs="1">
+			</xs:element>
+			<xs:element name="numero_despacho" type="xs:string"
+				maxOccurs="1" minOccurs="0">
+			</xs:element>
+			<xs:element name="numero_desde" type="xs:int" maxOccurs="1"
+				minOccurs="1">
+			</xs:element>
+			<xs:element name="numero_hasta" type="xs:int" maxOccurs="1"
+				minOccurs="0">
+			</xs:element>
+			<xs:element name="tipo_doc_comprador" type="xs:short"
+				maxOccurs="1" minOccurs="1">
+			</xs:element>
+			<xs:element name="nro_doc_comprador" type="xs:string"
+				maxOccurs="1" minOccurs="1">
+			</xs:element>
+			<xs:element name="denominacion_comprador" type="xs:string"
+				maxOccurs="1" minOccurs="1">
+			</xs:element>
+			<xs:element name="tipo_cambio" type="xs:decimal"
+				maxOccurs="1" minOccurs="1">
+			</xs:element>
+			<xs:element name="moneda" type="xs:string" maxOccurs="1"
+				minOccurs="1">
+			</xs:element>
+			<xs:element name="neto_gravado" type="xs:decimal"
+				maxOccurs="1" minOccurs="1">
+			</xs:element>
+			<xs:element name="no_gravado" type="xs:decimal"
+				maxOccurs="1" minOccurs="1">
+			</xs:element>
+			<xs:element name="exento" type="xs:decimal" maxOccurs="1"
+				minOccurs="1">
+			</xs:element>
+            <xs:element name="iva" type="xs:decimal" maxOccurs="1"
+				minOccurs="1">
+			</xs:element>
+			<xs:element name="total" type="xs:decimal" maxOccurs="1"
+				minOccurs="1">
+			</xs:element>
+			<xs:element name="imp_no_int_neto_grav" type="xs:decimal"
+				maxOccurs="1" minOccurs="1">
+			</xs:element>
+			<xs:element name="imp_exentos" type="xs:decimal"
+				maxOccurs="1" minOccurs="1">
+			</xs:element>
+			<xs:element name="percep_no_categorizadas"
+				type="xs:decimal" maxOccurs="1" minOccurs="1">
+			</xs:element>
+			<xs:element name="percep_o_pagos_a_cta_otro_imp_nac"
+				type="xs:decimal" maxOccurs="1" minOccurs="1">
+			</xs:element>
+			<xs:element name="imp_internos" type="xs:decimal"
+				maxOccurs="1" minOccurs="1">
+			</xs:element>
+			<xs:element name="percep_ingresos_brutos" type="xs:decimal"
+				maxOccurs="1" minOccurs="1">
+			</xs:element>
+			<xs:element name="otros_tributos" type="xs:decimal"
+				maxOccurs="1" minOccurs="1">
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="ventas">
+		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="venta" type="tns:venta"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="iva_ventas">
+		<xs:sequence>
+			<xs:element name="ventas" type="tns:ventas" maxOccurs="1"
+				minOccurs="0">
+			</xs:element>
+			<xs:element name="informacion_consolidada" type="tns:info_cons_ventas" maxOccurs="1" minOccurs="1"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="libro_iva">
+		<xs:sequence>
+			<xs:element name="info_presentacion"
+				type="tns:info_presentacion" maxOccurs="1" minOccurs="1">
+			</xs:element>
+			<xs:element name="iva_compras" type="tns:iva_compras"
+				maxOccurs="1" minOccurs="1">
+			</xs:element>
+			<xs:element name="iva_ventas" type="tns:iva_ventas"
+				maxOccurs="1" minOccurs="1">
+			</xs:element>
+			<xs:element name="total_debito_fiscal" type="xs:decimal" maxOccurs="1" minOccurs="1"></xs:element>
+			<xs:element name="total_credito_fiscal" type="xs:decimal" maxOccurs="1" minOccurs="1"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="libro_iva" type="tns:libro_iva"></xs:element>
+
+
+	<xs:complexType name="info_cons_compras">
+		<xs:sequence>
+			<xs:element name="total_computable_global" type="xs:decimal" maxOccurs="1" minOccurs="1"></xs:element>
+			<xs:element name="total_compras_no_fiscal" type="xs:decimal" maxOccurs="1" minOccurs="1"></xs:element>
+			<xs:element name="total_cf_tur_iva" type="xs:decimal" maxOccurs="1" minOccurs="1"></xs:element>
+			<xs:element name="total_cf_tur_iva_restituir" type="xs:decimal" maxOccurs="1" minOccurs="1"></xs:element>
+			<xs:element name="total_otras_no_cred_fisc" type="xs:decimal" maxOccurs="1" minOccurs="1"></xs:element>
+			<xs:element name="total_exento_no_gravado" type="xs:decimal" maxOccurs="1" minOccurs="1"></xs:element>
+			<xs:element name="total_exento_no_gravado_nc" type="xs:decimal" maxOccurs="1" minOccurs="1"></xs:element>
+			<xs:element name="totales_compras" type="tns:total_consolidado" maxOccurs="1" minOccurs="1"></xs:element>
+			<xs:element name="totales_bienes_usados" type="tns:total_consolidado" maxOccurs="1" minOccurs="1"></xs:element>
+			<xs:element name="totales_importacion_bienes" type="tns:total_consolidado" maxOccurs="1" minOccurs="1"></xs:element>
+			<xs:element name="totales_compras_mlcf_restituir" type="tns:total_consolidado" maxOccurs="1" minOccurs="1"></xs:element>
+			<xs:element name="totales_ajustes_segsoc_dto814_2001" type="tns:total_consolidado" maxOccurs="1" minOccurs="1"></xs:element>
+			<xs:element name="totales_ajustes_segsoc_art91_ley27467" type="tns:total_consolidado" maxOccurs="1" minOccurs="1"></xs:element>
+			<xs:element name="totales_ajustes_otros" type="tns:total_consolidado" maxOccurs="1" minOccurs="1"></xs:element>
+			<xs:element name="totales_ajustes_terminal_POS" type="tns:total_consolidado" maxOccurs="1" minOccurs="1"></xs:element>
+			<xs:element name="totales_ajustes_deb_rest_otros" type="tns:total_consolidado" maxOccurs="1" minOccurs="1"></xs:element>
+			<xs:element name="totales_ajustes_deb_rest_bienes_usados" type="tns:total_consolidado" maxOccurs="1" minOccurs="1"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="info_cons_ventas">
+		<xs:sequence>
+			<xs:element
+				name="total_ventas_importes_exentos_no_gravados_excepto_exportaciones"
+				type="xs:decimal" maxOccurs="1" minOccurs="1">
+			</xs:element>
+			<xs:element name="total_ventas_exportacion"
+				type="xs:decimal" maxOccurs="1" minOccurs="1">
+			</xs:element>
+			<xs:element
+				name="total_ventas_importes_exentos_no_gravados_nc_excepto_exportaciones"
+				type="xs:decimal" maxOccurs="1" minOccurs="1">
+			</xs:element>
+			<xs:element name="totales_ventas_ri" type="tns:total_consolidado" maxOccurs="1" minOccurs="1"></xs:element>
+			<xs:element name="totales_ventas_cons_fin_exento_no_alcanzado" type="tns:total_consolidado" maxOccurs="1" minOccurs="1"></xs:element>
+			<xs:element name="totales_ventas_mono" type="tns:total_consolidado" maxOccurs="1" minOccurs="1"></xs:element>
+			<xs:element name="totales_ventas_otros_conceptos_deb_fiscal" type="tns:total_consolidado" maxOccurs="1" minOccurs="1"></xs:element>
+			<xs:element name="totales_ventas_deb_perf_hecho_imponible" type="tns:total_consolidado" maxOccurs="1" minOccurs="1"></xs:element>
+			<xs:element name="totales_ventas_ri_otros_rest_deb_fiscal" type="tns:total_consolidado" maxOccurs="1" minOccurs="1"></xs:element>
+			<xs:element name="totales_ventas_exentos_no_alcanzado_mono_cons_fin_rest_deb_fiscal" type="tns:total_consolidado" maxOccurs="1" minOccurs="1"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+    <xs:complexType name="total_consolidado">
+    	<xs:sequence>
+    		<xs:element name="total_neto_gravado" type="xs:decimal" maxOccurs="1" minOccurs="1"></xs:element>
+    		<xs:element name="total_liquidado" type="xs:decimal" maxOccurs="1" minOccurs="1"></xs:element>
+    		<xs:element name="total_computable" type="xs:decimal" maxOccurs="1" minOccurs="1"></xs:element>
+    	</xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="info_presentacion">
+    	<xs:sequence>
+    		<xs:element name="codigo" type="xs:long"></xs:element>
+    		<xs:element name="periodo" type="xs:int"></xs:element>
+    		<xs:element name="secuencia" type="xs:int"></xs:element>
+    	</xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
